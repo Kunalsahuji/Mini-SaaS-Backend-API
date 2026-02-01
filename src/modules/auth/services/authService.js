@@ -1,4 +1,4 @@
-import { generateAccessToken, generateRefreshToken } from "../../../config/jwt.js";
+import { generateAccessToken, generateRefreshToken, verifyToken } from "../../../config/jwt.js";
 import { asyncHandler } from "../../../middlewares/asynHandler.js";
 import { AppError } from "../../../middlewares/errorHandler.js";
 import User from "../../user/models/User.js";
@@ -29,3 +29,22 @@ export const loginUser = asyncHandler(async ({ email, password }) => {
     return { user, accessToken, refreshToken };
 }
 )
+
+export const refreshAccessToken = asyncHandler(async (refreshToken) => {
+    if (!refreshToken) {
+        throw new AppError('No refresh token provided', 400);
+    }
+    try {
+        const decoded = verifyToken(refreshToken, process.env.JWT_REFRESH_SECRET);
+        const userId = decoded.id;
+        // Optionally fetch the user from the database to ensure they still exist
+        const user = await User.findById(userId);
+        if (!user) {
+            throw new AppError('User not found', 404);
+        }
+        const newAccessToken = generateAccessToken({ _id: userId, role: decoded.role, plan: decoded.plan });
+        return { newAccessToken };
+    } catch (error) {
+        throw new AppError('Invalid refresh token', 401);
+    }
+})
