@@ -33,6 +33,13 @@ This project demonstrates **secure authentication**, **role-based authorization*
 
 ---
 
+## 🌍 Live API
+
+**Base URL:**  
+https://mini-saas-backend-api.onrender.com
+
+📌 Use this base URL when testing APIs in **Postman** or **frontend integrations**.
+
 ## 🛠️ Tech Stack
 
 - **Backend:** Node.js, Express.js (ES Modules)

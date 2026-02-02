@@ -5,6 +5,15 @@
         "description": "Postman collection for testing Mini SaaS Backend API endpoints",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:5000",
+            "production_Value": "https://mini-saas-backend-api.onrender.com",
+            "type": "string",
+            "description": "Base URL for the API. Use http://localhost:5000 for local development and https://mini-saas-backend-api.onrender.com for production."
+        }
+    ],
     "item": [
         {
             "name": "Register",
@@ -21,10 +30,11 @@
                     }
                 },
                 "url": {
-                    "raw": "http://localhost:5000/api/auth/register",
+                    "raw": "{{base_url}}/api/auth/register",
+                    
                     "protocol": "http",
                     "host": [
-                        "localhost"
+                        "{{base_url}}"
                     ],
                     "port": "5000",
                     "path": [
@@ -51,10 +61,10 @@
                     }
                 },
                 "url": {
-                    "raw": "http://localhost:5000/api/auth/login",
+                    "raw": "{{base_url}}/api/auth/login",
                     "protocol": "http",
                     "host": [
-                        "localhost"
+                        "{{base_url}}"
                     ],
                     "port": "5000",
                     "path": [
@@ -81,10 +91,10 @@
                     }
                 },
                 "url": {
-                    "raw": "http://localhost:5000/api/auth/refresh",
+                    "raw": "{{base_url}}/api/auth/refresh",
                     "protocol": "http",
                     "host": [
-                        "localhost"
+                        "{{base_url}}"
                     ],
                     "port": "5000",
                     "path": [
@@ -108,10 +118,10 @@
                     }
                 ],
                 "url": {
-                    "raw": "http://localhost:5000/api/users/profile",
+                    "raw": "{{base_url}}/api/users/profile",
                     "protocol": "http",
                     "host": [
-                        "localhost"
+                        "{{base_url}}"
                     ],
                     "port": "5000",
                     "path": [
@@ -144,10 +154,10 @@
                     }
                 },
                 "url": {
-                    "raw": "http://localhost:5000/api/subscriptions/change",
+                    "raw": "{{base_url}}/api/subscriptions/change",
                     "protocol": "http",
                     "host": [
-                        "localhost"
+                        "{{base_url}}"
                     ],
                     "port": "5000",
                     "path": [
