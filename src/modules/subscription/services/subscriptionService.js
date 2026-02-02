@@ -1,8 +1,7 @@
 import User from '../../user/models/User.js';
-import { asyncHandler } from "../../../middlewares/asynHandler.js";
 import { AppError } from "../../../middlewares/errorHandler.js";
 
-export const upgradePlan = asyncHandler(async (userId, newPlan) => {
+export const upgradePlan = async (userId, newPlan) => {
     const validPlans = ['free', 'pro']
     if (!validPlans.includes(newPlan)) {
         throw new AppError('Invalid plan selected', 400);
@@ -14,4 +13,4 @@ export const upgradePlan = asyncHandler(async (userId, newPlan) => {
     user.plan = newPlan;
     await user.save();
     return user;
-})
+}

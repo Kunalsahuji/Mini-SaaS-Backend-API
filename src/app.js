@@ -22,6 +22,12 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', protect, rateLimiter, userRoutes);
 app.use('/api/subscriptions', protect, subscriptionRoutes);
 
+// test api for hello world 
+app.get('/api/hello', (req, res) => {
+    {
+        res.status(200).json({ message: 'Hello, World Ji!' });
+    }
+});
 //Error Middleware
 app.use(errorHandler);
 export default app;
