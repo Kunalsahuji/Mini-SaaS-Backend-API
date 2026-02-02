@@ -13,6 +13,20 @@ This backend provides:
 
 ---
 
+## 🌍 Live API
+
+**Production Base URL:**  
+![Deployment](https://img.shields.io/badge/Hosted%20on-Render-blue)
+ https://mini-saas-backend-api.onrender.com
+
+**Local Base URL:**  
+http://localhost:5000
+
+✔ Use the production URL for public testing  
+✔ Use the local URL for development
+
+---
+
 ## 🚀 Setup Instructions
 
 ### 1️⃣ Clone the repository

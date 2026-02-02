@@ -35,10 +35,17 @@ This project demonstrates **secure authentication**, **role-based authorization*
 
 ## 🌍 Live API
 
-**Base URL:**  
-https://mini-saas-backend-api.onrender.com
+**Production Base URL:**  
+![Deployment](https://img.shields.io/badge/Hosted%20on-Render-blue)
+ https://mini-saas-backend-api.onrender.com
 
-📌 Use this base URL when testing APIs in **Postman** or **frontend integrations**.
+**Local Base URL:**  
+http://localhost:5000
+
+✔ Use the production URL for public testing  
+✔ Use the local URL for development
+
+---
 
 ## 🛠️ Tech Stack
 
