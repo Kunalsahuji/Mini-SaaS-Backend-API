@@ -3,5 +3,5 @@ import { changePlan } from "../modules/subscription/controllers/subscriptionCont
 import { protect } from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
-router.put('/change', protect, changePlan)
+router.put('/change', changePlan)
 export default router;
