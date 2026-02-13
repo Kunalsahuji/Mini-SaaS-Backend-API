@@ -2,7 +2,7 @@
     "info": {
         "name": "Mini SaaS Backend API",
         "_postman_id": "f58ad091-ee48-4bdc-9334-24e422183a1c",
-        "description": "Postman collection for testing Mini SaaS Backend API endpoints",
+        "description": "Postman collection for testing Mini SaaS Backend API endpoints including Admin operations",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "variable": [
@@ -31,12 +31,9 @@
                 },
                 "url": {
                     "raw": "{{base_url}}/api/auth/register",
-                    
-                    "protocol": "http",
                     "host": [
                         "{{base_url}}"
                     ],
-                    "port": "5000",
                     "path": [
                         "api",
                         "auth",
@@ -62,11 +59,9 @@
                 },
                 "url": {
                     "raw": "{{base_url}}/api/auth/login",
-                    "protocol": "http",
                     "host": [
                         "{{base_url}}"
                     ],
-                    "port": "5000",
                     "path": [
                         "api",
                         "auth",
@@ -92,11 +87,9 @@
                 },
                 "url": {
                     "raw": "{{base_url}}/api/auth/refresh",
-                    "protocol": "http",
                     "host": [
                         "{{base_url}}"
                     ],
-                    "port": "5000",
                     "path": [
                         "api",
                         "auth",
@@ -119,11 +112,9 @@
                 ],
                 "url": {
                     "raw": "{{base_url}}/api/users/profile",
-                    "protocol": "http",
                     "host": [
                         "{{base_url}}"
                     ],
-                    "port": "5000",
                     "path": [
                         "api",
                         "users",
@@ -155,15 +146,133 @@
                 },
                 "url": {
                     "raw": "{{base_url}}/api/subscriptions/change",
-                    "protocol": "http",
                     "host": [
                         "{{base_url}}"
                     ],
-                    "port": "5000",
                     "path": [
                         "api",
                         "subscriptions",
                         "change"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Admin - Get All Users",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer <admin_access_token_here>",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/api/admin/users",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "admin",
+                        "users"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Admin - Create User",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer <admin_access_token_here>",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"New User\",\n  \"email\": \"newuser@example.com\",\n  \"password\": \"Password123\",\n  \"role\": \"user\",\n  \"plan\": \"free\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/admin/users",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "admin",
+                        "users"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Admin - Update User",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer <admin_access_token_here>",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"Updated Name\",\n  \"email\": \"updated@example.com\",\n  \"plan\": \"pro\",\n  \"role\": \"admin\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/admin/users/<user_id_here>",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "admin",
+                        "users",
+                        "<user_id_here>"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Admin - Delete User",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer <admin_access_token_here>",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/api/admin/users/<user_id_here>",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "admin",
+                        "users",
+                        "<user_id_here>"
                     ]
                 }
             },
